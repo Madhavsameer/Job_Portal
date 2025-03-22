@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "../Styles/Home.css";
+import RecentJobs from "./RecentJobs";
 
 function Home() {
   return (
@@ -36,6 +37,7 @@ function Home() {
           </div>
         </div>
       </section>
+      <RecentJobs/>
 
       {/* How It Works */}
       <section className="how-it-works">

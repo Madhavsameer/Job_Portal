@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "../Styles/Auth.css"; // ✅ Import CSS
+import { useNavigate } from "react-router-dom";
 
 function Register() {
+  const navigate=useNavigate();
   const [user, setUser] = useState({ name: "", email: "", password: "", role: "User" });
 
   const handleRegister = (e) => {
@@ -14,6 +16,7 @@ function Register() {
     })
       .then((res) => res.json())
       .then(() => alert("Registration successful!"));
+      navigate("/login");
   };
 
   return (

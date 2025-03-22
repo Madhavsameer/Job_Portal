@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 
-function Admin() {
-  const [job, setJob] = useState({ title: "", description: "", salary: "" });
+function AddJob() {
+  const [job, setJob] = useState({ title: "", description: "", salary: "", company: "", location: "" });
   const [user, setUser] = useState(null);
 
   useEffect(() => {
@@ -47,7 +47,7 @@ function Admin() {
   return (
     <div>
       <h2>Admin Panel</h2>
-      {user ? <p>Welcome, {user.username}!</p> : <p>Loading...</p>}
+      {user ? <p>Welcome, {user.name}!</p> : <p>Loading...</p>}
       <form onSubmit={handleSubmit}>
         <input
           type="text"
@@ -61,9 +61,15 @@ function Admin() {
           required
         />
         <input
-          type="number"
-          placeholder="Salary"
-          onChange={(e) => setJob({ ...job, salary: e.target.value })}
+          type="text"
+          placeholder="Company"
+          onChange={(e) => setJob({ ...job, company: e.target.value })}
+          required
+        />
+        <input
+          type="text"
+          placeholder="Location"
+          onChange={(e) => setJob({ ...job, location: e.target.value })}
           required
         />
         <button type="submit">Post Job</button>
@@ -72,4 +78,4 @@ function Admin() {
   );
 }
 
-export default Admin;
+export default AddJob;
